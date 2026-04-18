@@ -30,7 +30,7 @@ export default function Legacy() {
   return (
     <section id="legacy" className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* 1. Split: video left / ivory right */}
+      
       <div className="flex flex-col lg:flex-row" style={{ minHeight: "100vh" }}>
         <div className="relative w-full lg:w-1/2 h-[65vw] lg:h-auto overflow-hidden">
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -74,7 +74,7 @@ export default function Legacy() {
         </div>
       </div>
 
-      {/* 2. Timeline — navy band */}
+      
       <div style={{ background: "var(--c-slate)", borderTop: "1px solid var(--div-warm)", borderBottom: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-16">
           <motion.p {...fadeUp(0)} className="uppercase mb-10"
@@ -93,7 +93,7 @@ export default function Legacy() {
         </div>
       </div>
 
-      {/* 3. Cultural — ivory left / static image right */}
+      
       <div className="flex flex-col-reverse lg:flex-row" style={{ minHeight: "70vh" }}>
         <div className="relative w-full lg:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-24"
           style={{ background: "var(--c-cream)" }}>

@@ -22,7 +22,7 @@ export default function Attractions() {
   return (
     <section id="attractions" className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* Header */}
+      
       <div className="max-w-screen-xl mx-auto px-8 md:px-16 pt-28 pb-16">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
           <motion.div {...fadeUp(0)}>
@@ -43,7 +43,7 @@ export default function Attractions() {
         </div>
       </div>
 
-      {/* 3 activation cards with video backgrounds */}
+      
       <div className="px-8 md:px-16 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {activations.map((a, i) => (
@@ -65,7 +65,7 @@ export default function Attractions() {
         </div>
       </div>
 
-      {/* Event types — warm dark */}
+      
       <div style={{ background: "var(--c-slate)", borderTop: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-20">
           <motion.p {...fadeUp(0)} className="uppercase mb-10" style={{ fontSize: "var(--sz-label)", letterSpacing: "var(--tr-label)", color: "var(--gold)", opacity: 0.7 }}>
@@ -83,7 +83,7 @@ export default function Attractions() {
         </div>
       </div>
 
-      {/* Capacity split */}
+      
       <div className="flex flex-col lg:flex-row" style={{ minHeight: "55vh" }}>
         <div className="relative w-full lg:w-1/2 h-[40vw] lg:h-auto overflow-hidden">
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">

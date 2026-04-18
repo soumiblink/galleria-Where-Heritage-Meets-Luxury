@@ -40,7 +40,7 @@ export default function Luxury() {
   return (
     <section id="luxury" className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* 1. Content header — image right, text left (no video-video collision with Legacy) */}
+      
       <div className="flex flex-col lg:flex-row" style={{ minHeight: "85vh" }}>
         <div
           className="relative w-full lg:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-24 lg:py-32"
@@ -69,7 +69,7 @@ export default function Luxury() {
             </p>
           </motion.div>
         </div>
-        {/* Static image — breaks video-video collision with Legacy */}
+        
         <div className="relative w-full lg:w-1/2 h-[60vw] lg:h-auto overflow-hidden">
           <img
             src="/assets/images/dome 13.jpg"
@@ -80,7 +80,7 @@ export default function Luxury() {
         </div>
       </div>
 
-      {/* 2. Parallax strip */}
+      
       <div ref={stripRef} className="relative overflow-hidden py-2" style={{ background: "var(--c-coal)" }}>
         <motion.div style={{ x, paddingLeft: "clamp(2rem,4vw,4rem)" }} className="flex gap-[3px]">
           {images.map((src, i) => (
@@ -92,7 +92,7 @@ export default function Luxury() {
         </motion.div>
       </div>
 
-      {/* 3. Tenants + metrics — ivory */}
+      
       <div style={{ background: "var(--c-ivory)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-28">
           <div className="flex flex-col lg:flex-row gap-20">

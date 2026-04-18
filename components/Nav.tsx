@@ -52,7 +52,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        {/* Enquire — bordered, not filled */}
+       
         <a href="#contact"
           className="hidden md:block uppercase transition-all duration-500"
           style={{

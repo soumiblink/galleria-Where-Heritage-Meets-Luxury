@@ -13,7 +13,7 @@ const strip = [
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Video */}
+      
       <video
         autoPlay loop muted playsInline
         className="absolute inset-0 w-full h-full object-cover scale-[1.03]"
@@ -22,7 +22,7 @@ export default function Hero() {
         <source src="/assets/videos/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Cinematic gradient — warm amber at base */}
+      
       <div
         className="absolute inset-0"
         style={{
@@ -31,7 +31,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
+      
       <div className="relative z-10 flex flex-col justify-center h-full max-w-screen-xl mx-auto px-8 md:px-16 pb-32">
         <motion.p
           {...mountIn(0.3)}
@@ -101,7 +101,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Bottom stat strip */}
+      
       <motion.div
         {...mountIn(1.4)}
         className="absolute bottom-0 inset-x-0 z-10"

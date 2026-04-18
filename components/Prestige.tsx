@@ -53,7 +53,7 @@ export default function Prestige() {
   return (
     <section id="events" className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* 1. Content header — breaks video-video collision with Attractions */}
+      
       <div style={{ background: "var(--c-void)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 pt-32 pb-20">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
@@ -77,7 +77,7 @@ export default function Prestige() {
           </div>
         </div>
 
-        {/* Full-bleed image — not video, to break the collision */}
+       
         <div className="relative w-full overflow-hidden" style={{ height: "65vh" }}>
           <img
             src="/assets/images/dome 12.jpg"
@@ -94,7 +94,7 @@ export default function Prestige() {
         </div>
       </div>
 
-      {/* 2. Reach stats — warm dark */}
+      
       <div style={{ background: "var(--c-slate)", borderBottom: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4">
@@ -111,7 +111,7 @@ export default function Prestige() {
         </div>
       </div>
 
-      {/* 3. Partnership cards — ivory */}
+      
       <div style={{ background: "var(--c-ivory)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-28">
           <motion.p {...fadeUp(0)} className="uppercase mb-14"
@@ -132,7 +132,7 @@ export default function Prestige() {
         </div>
       </div>
 
-      {/* 4. Audience — coal */}
+     
       <div style={{ background: "var(--c-coal)", borderTop: "1px solid var(--div-dark)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-24">
           <motion.p {...fadeUp(0)} className="uppercase mb-14"
@@ -152,7 +152,7 @@ export default function Prestige() {
         </div>
       </div>
 
-      {/* 5. Closing video */}
+      
       <div className="relative h-[55vh] w-full overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/assets/videos/dome 2.mp4" type="video/mp4" />

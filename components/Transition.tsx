@@ -21,7 +21,7 @@ export default function Transition() {
   return (
     <section className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* Dark intro — flows from hero */}
+     
       <div className="max-w-screen-xl mx-auto px-8 md:px-16 pt-32 pb-24">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-28">
 
@@ -66,7 +66,7 @@ export default function Transition() {
         </div>
       </div>
 
-      {/* Image grid — full bleed */}
+      
       <div className="grid grid-cols-4 gap-[2px]">
         {images.map((src, i) => (
           <motion.div key={src} {...fadeIn(0.06 * i)} className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
@@ -75,7 +75,7 @@ export default function Transition() {
         ))}
       </div>
 
-      {/* Stat bar — warm dark */}
+     
       <div style={{ background: "var(--c-slate)", borderTop: "1px solid var(--div-warm)", borderBottom: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4">

@@ -31,7 +31,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* 1. Full-screen video hero */}
+      
       <div className="relative w-full overflow-hidden" style={{ minHeight: "100vh" }}>
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/assets/videos/interior 3.mp4" type="video/mp4" />
@@ -63,7 +63,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* 2. Partnership paths — ivory */}
+     
       <div style={{ background: "var(--c-ivory)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-28">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -96,7 +96,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* 3. Direct contacts — warm dark */}
+      
       <div style={{ background: "var(--c-slate)", borderTop: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-20">
           <motion.p {...fadeUp(0)} className="uppercase mb-12"
@@ -118,7 +118,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* 4. Footer */}
+      
       <div style={{ background: "var(--c-coal)", borderTop: "1px solid var(--div-dark)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="uppercase" style={{ fontSize: "var(--sz-label)", letterSpacing: "0.28em", color: "var(--t-light-3)" }}>

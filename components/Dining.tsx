@@ -28,7 +28,7 @@ export default function Dining() {
   return (
     <section id="dining" className="relative w-full" style={{ background: "var(--c-void)" }}>
 
-      {/* 1. Split: image left / text right — breaks video-video collision with Luxury */}
+     
       <div className="flex flex-col-reverse lg:flex-row" style={{ minHeight: "90vh" }}>
         <div className="relative w-full lg:w-1/2 h-[60vw] lg:h-auto overflow-hidden">
           <img
@@ -72,7 +72,7 @@ export default function Dining() {
         </div>
       </div>
 
-      {/* 2. Stats — warm dark */}
+     
       <div style={{ background: "var(--c-slate)", borderTop: "1px solid var(--div-warm)", borderBottom: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4">
@@ -89,7 +89,7 @@ export default function Dining() {
         </div>
       </div>
 
-      {/* 3. Venue cards — ivory */}
+    
       <div style={{ background: "var(--c-ivory)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16 py-28">
           <motion.p {...fadeUp(0)} className="uppercase mb-14"
@@ -112,7 +112,7 @@ export default function Dining() {
         </div>
       </div>
 
-      {/* 4. Business case — image bg left / image bg right */}
+      
       <div className="flex flex-col lg:flex-row" style={{ minHeight: "65vh" }}>
         <div className="relative w-full lg:w-1/2 h-[50vw] lg:h-auto overflow-hidden">
           <img src="/assets/images/dome 15.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
