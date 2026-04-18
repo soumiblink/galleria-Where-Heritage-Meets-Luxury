@@ -28,7 +28,7 @@ const variants = {
   exit:  (dir: number) => ({ opacity: 0, x: dir > 0 ? -60 : 60 }),
 };
 
-const RAIL = 44; // collapsed sidebar width in px
+const RAIL = 44; 
 
 export default function Deck() {
   const [active, setActive] = useState(0);
@@ -59,7 +59,7 @@ export default function Deck() {
     <div className="relative w-screen h-screen overflow-hidden select-none"
       style={{ background: "var(--c-void)" }}>
 
-      {/* ── Slides fill the FULL viewport ── */}
+      
       <AnimatePresence mode="wait" custom={dir}>
         <motion.div
           key={active}
@@ -76,7 +76,7 @@ export default function Deck() {
         </motion.div>
       </AnimatePresence>
 
-      {/* ── Sidebar — collapsed rail, expands on hover ── */}
+      
       {!presentation && (
         <motion.nav
           onHoverStart={() => setSidebarOpen(true)}
@@ -90,7 +90,7 @@ export default function Deck() {
             borderRight: "1px solid var(--div-dark)",
           }}
         >
-          {/* Logo / icon area */}
+          
           <div className="flex-shrink-0 flex items-center px-3 py-4"
             style={{ borderBottom: "1px solid var(--div-dark)", height: "56px" }}>
             {/* Dot icon always visible */}
@@ -105,7 +105,7 @@ export default function Deck() {
             </motion.div>
           </div>
 
-          {/* Nav links */}
+          
           <div className="flex-1 flex flex-col justify-center py-4 gap-0.5">
             {slides.map((s, i) => {
               const isActive = i === active;
@@ -120,7 +120,7 @@ export default function Deck() {
                       height: isActive ? "20px" : "4px",
                       background: isActive ? "var(--gold)" : "var(--t-light-3)",
                     }} />
-                  {/* Label — only visible when expanded */}
+                  
                   <motion.span
                     animate={{ opacity: sidebarOpen ? 1 : 0 }}
                     transition={{ duration: 0.15 }}
@@ -137,7 +137,7 @@ export default function Deck() {
             })}
           </div>
 
-          {/* Counter */}
+          
           <div className="flex-shrink-0 flex items-center px-3 py-3"
             style={{ borderTop: "1px solid var(--div-dark)" }}>
             <motion.p
@@ -150,7 +150,7 @@ export default function Deck() {
         </motion.nav>
       )}
 
-      {/* ── Bottom dot nav — centred across full width ── */}
+      
       {!presentation && (
         <div className="absolute bottom-5 inset-x-0 z-40 flex justify-center gap-2">
           {slides.map((_, i) => (
@@ -166,7 +166,7 @@ export default function Deck() {
         </div>
       )}
 
-      {/* ── Prev / Next arrows ── */}
+      
       {!presentation && (
         <>
           <button onClick={() => go(active - 1)} disabled={active === 0}
@@ -194,7 +194,7 @@ export default function Deck() {
         </>
       )}
 
-      {/* ── Present toggle ── */}
+      
       <button onClick={() => setPresentation(p => !p)}
         className="absolute z-50 uppercase transition-all duration-300"
         style={{
@@ -211,7 +211,7 @@ export default function Deck() {
         {presentation ? "Exit" : "Present"}
       </button>
 
-      {/* ── Keyboard hint ── */}
+      
       {active === 0 && !presentation && (
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5, duration: 1 }}

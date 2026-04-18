@@ -13,7 +13,7 @@ export default function SlidePartner() {
   return (
     <div className="relative w-full h-full flex" style={{ background: "var(--c-void)" }}>
 
-      {/* Left: video CTA */}
+      
       <div className="relative w-5/12 h-full overflow-hidden flex-shrink-0">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/assets/videos/interior 3.mp4" type="video/mp4" />
@@ -45,7 +45,7 @@ export default function SlidePartner() {
         </div>
       </div>
 
-      {/* Right: 3 path cards */}
+      
       <div className="relative w-7/12 h-full flex flex-col justify-center px-10 md:px-14 py-10 overflow-y-auto"
         style={{ background: "var(--c-ivory)" }}>
         <motion.p {...fadeUp(0)} className="uppercase mb-6"

@@ -28,7 +28,7 @@ export default function SlideOverview() {
   return (
     <div className="relative w-full h-full flex flex-col" style={{ background: "var(--c-void)" }}>
 
-      {/* Top: 2-col content */}
+      
       <div className="flex-1 flex items-center">
         <div className="w-full max-w-screen-xl mx-auto px-8 md:px-16 py-10">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
@@ -55,7 +55,7 @@ export default function SlideOverview() {
         </div>
       </div>
 
-      {/* Image strip */}
+      
       <div className="flex-shrink-0 grid grid-cols-4 gap-[2px]" style={{ height: "28vh" }}>
         {images.map((src, i) => (
           <motion.div key={src} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -66,7 +66,7 @@ export default function SlideOverview() {
         ))}
       </div>
 
-      {/* Stat bar */}
+      
       <div className="flex-shrink-0" style={{ background: "var(--c-slate)", borderTop: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4">

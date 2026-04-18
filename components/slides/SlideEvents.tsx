@@ -13,7 +13,7 @@ export default function SlideEvents() {
   return (
     <div className="relative w-full h-full flex flex-col" style={{ background: "var(--c-void)" }}>
 
-      {/* Header */}
+      
       <div className="flex-shrink-0 max-w-screen-xl mx-auto w-full px-8 md:px-16 pt-10 pb-6">
         <div className="flex items-end justify-between gap-8">
           <motion.div {...fadeUp(0)}>
@@ -31,7 +31,7 @@ export default function SlideEvents() {
         </div>
       </div>
 
-      {/* 3 video cards */}
+      
       <div className="flex-1 px-8 md:px-16 pb-8 grid grid-cols-3 gap-4 min-h-0">
         {activations.map((a, i) => (
           <motion.div key={a.num} {...fadeUp(0.1 * i)}

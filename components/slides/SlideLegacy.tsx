@@ -21,7 +21,7 @@ export default function SlideLegacy() {
   return (
     <div className="relative w-full h-full flex" style={{ background: "var(--c-void)" }}>
 
-      {/* Left: video */}
+      
       <div className="relative w-1/2 h-full overflow-hidden flex-shrink-0">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/assets/videos/interior 1.mp4" type="video/mp4" />
@@ -34,7 +34,7 @@ export default function SlideLegacy() {
         </div>
       </div>
 
-      {/* Right: content */}
+      
       <div className="relative w-1/2 h-full flex flex-col justify-center px-10 md:px-14 overflow-y-auto"
         style={{ background: "var(--c-ivory)" }}>
         <motion.p {...fadeUp(0)} className="uppercase mb-4"
@@ -51,7 +51,7 @@ export default function SlideLegacy() {
           Structurally original after 147 years — a UNESCO World Heritage candidate.
         </motion.p>
 
-        {/* Spec cards */}
+        
         <motion.div {...fadeUp(0.22)} className="grid grid-cols-2 gap-3 mb-6">
           {specs.map((s) => (
             <div key={s.label} className="card-light py-4 px-4">
@@ -62,7 +62,7 @@ export default function SlideLegacy() {
           ))}
         </motion.div>
 
-        {/* Timeline */}
+        
         <motion.div {...fadeUp(0.3)} style={{ borderTop: "1px solid var(--div-light)" }}>
           <p className="uppercase mt-4 mb-3" style={{ fontSize: "var(--sz-label)", letterSpacing: "var(--tr-label)", color: "var(--gold)", opacity: 0.65 }}>Key Dates</p>
           <div className="grid grid-cols-2 gap-x-6 gap-y-2">

@@ -21,14 +21,14 @@ export default function SlideDining() {
   return (
     <div className="relative w-full h-full flex" style={{ background: "var(--c-void)" }}>
 
-      {/* Left: image */}
+    
       <div className="relative w-5/12 h-full overflow-hidden flex-shrink-0">
         <img src="/assets/images/dome 17.jpg" alt="Galleria dining"
           className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: "var(--ov-soft)" }} />
       </div>
 
-      {/* Right: content */}
+      
       <div className="relative w-7/12 h-full flex flex-col justify-center px-10 md:px-14 overflow-y-auto"
         style={{ background: "var(--c-ivory)" }}>
         <motion.p {...fadeUp(0)} className="uppercase mb-4"
@@ -45,7 +45,7 @@ export default function SlideDining() {
           for over a century, alongside Michelin-starred restaurants, all beneath the same iconic glass vault.
         </motion.p>
 
-        {/* Stats row */}
+        
         <motion.div {...fadeUp(0.22)} className="grid grid-cols-4 gap-3 mb-5">
           {stats.map((s) => (
             <div key={s.label} className="card-light py-3 px-3 text-center">
@@ -55,7 +55,7 @@ export default function SlideDining() {
           ))}
         </motion.div>
 
-        {/* Venue list */}
+        
         <motion.div {...fadeUp(0.3)} style={{ borderTop: "1px solid var(--div-light)" }}>
           <p className="uppercase mt-4 mb-3" style={{ fontSize: "var(--sz-label)", letterSpacing: "var(--tr-label)", color: "var(--gold)", opacity: 0.65 }}>Landmark Venues</p>
           <div className="space-y-2">

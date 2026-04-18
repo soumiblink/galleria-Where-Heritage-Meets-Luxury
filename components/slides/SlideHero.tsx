@@ -38,7 +38,7 @@ export default function SlideHero() {
         </motion.p>
       </div>
 
-      {/* Stat strip */}
+      
       <motion.div {...mountIn(1.2)} className="absolute bottom-0 inset-x-0 z-10"
         style={{ borderTop: "1px solid var(--div-dark)", background: "rgba(8,10,14,0.65)", backdropFilter: "blur(14px)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16">

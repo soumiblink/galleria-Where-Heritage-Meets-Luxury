@@ -23,7 +23,7 @@ export default function SlideLuxury() {
   return (
     <div className="relative w-full h-full flex" style={{ background: "var(--c-void)" }}>
 
-      {/* Left: text */}
+      
       <div className="relative w-1/2 h-full flex flex-col justify-center px-10 md:px-14 overflow-y-auto"
         style={{ background: "var(--c-void)" }}>
         <motion.p {...fadeUp(0)} className="uppercase mb-4"
@@ -40,7 +40,7 @@ export default function SlideLuxury() {
           The single most valuable commercial address in Italy.
         </motion.p>
 
-        {/* Metrics */}
+        
         <motion.div {...fadeUp(0.22)} className="grid grid-cols-2 gap-3 mb-6">
           {metrics.map((s) => (
             <div key={s.label} className="card-dark py-4 px-4">
@@ -51,7 +51,7 @@ export default function SlideLuxury() {
           ))}
         </motion.div>
 
-        {/* Tenant list */}
+        
         <motion.div {...fadeUp(0.3)} style={{ borderTop: "1px solid var(--div-dark)" }}>
           <p className="uppercase mt-4 mb-3" style={{ fontSize: "var(--sz-label)", letterSpacing: "var(--tr-label)", color: "var(--gold)", opacity: 0.65 }}>Key Tenants</p>
           <div className="grid grid-cols-2 gap-x-6">
@@ -66,7 +66,7 @@ export default function SlideLuxury() {
         </motion.div>
       </div>
 
-      {/* Right: image */}
+      
       <div className="relative w-1/2 h-full overflow-hidden flex-shrink-0">
         <img src="/assets/images/dome 13.jpg" alt="Galleria interior"
           className="absolute inset-0 w-full h-full object-cover" />

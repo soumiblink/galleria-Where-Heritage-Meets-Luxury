@@ -1,12 +1,10 @@
-# Galleria Vittorio Emanuele II — Interactive Sales Experience
+# Galleria Vittorio Emanuele II — Interactive Sales Deck
 
-A premium, cinematic, browser-based sales deck for Galleria Vittorio Emanuele II — Milan's 147-year-old luxury arcade. Built as an interactive pitch tool for prospective retail tenants, brand partners, and event producers.
+A premium, cinematic, slide-based sales presentation for Galleria Vittorio Emanuele II — Milan's 147-year-old luxury arcade. Built as an interactive pitch tool for live sales calls and standalone prospect exploration.
 
 ---
 
 ## Live Demo
-
-Deploy to Vercel:
 
 ```bash
 cd galleria-experience
@@ -14,6 +12,19 @@ vercel --prod
 ```
 
 Or run locally — see setup below.
+
+---
+
+## Setup
+
+```bash
+cd galleria-experience
+npm install
+npm run dev        # → http://localhost:3000
+npm run build      # production build
+```
+
+Node.js 18+ required.
 
 ---
 
@@ -30,26 +41,6 @@ Or run locally — see setup below.
 
 ---
 
-## Setup
-
-```bash
-# Install dependencies
-cd galleria-experience
-npm install
-
-# Run development server
-npm run dev
-# → http://localhost:3000
-
-# Production build
-npm run build
-npm start
-```
-
-Node.js 18+ required.
-
----
-
 ## Project Structure
 
 ```
@@ -57,29 +48,67 @@ galleria-experience/
 ├── app/
 │   ├── globals.css       # Design token system (all CSS variables)
 │   ├── layout.tsx        # Font loading, metadata, root layout
-│   └── page.tsx          # Section composition
+│   └── page.tsx          # Renders <Deck /> — single entry point
 │
 ├── components/
-│   ├── Nav.tsx           # Fixed navigation bar with scroll-aware background
-│   ├── ScrollProgress.tsx # Gold progress bar tracking scroll position
-│   ├── SectionNav.tsx    # Right-edge dot navigation with active section tracking
-│   ├── Hero.tsx          # Full-screen video intro with stat strip
-│   ├── Transition.tsx    # Property intro, image grid, key stats
-│   ├── Legacy.tsx        # History, architecture specs, timeline, cultural status
-│   ├── Luxury.tsx        # Retail positioning, parallax image strip, tenant list
-│   ├── Dining.tsx        # Dining offer, venue cards, business case
-│   ├── Attractions.tsx   # Events, activations, venue capacity
-│   ├── Prestige.tsx      # Platform reach, partnership opportunities, audience data
-│   └── Contact.tsx       # CTA, partnership paths, direct contacts, footer
+│   ├── Deck.tsx          # Core presentation engine — state, nav, transitions
+│   └── slides/
+│       ├── SlideHero.tsx      # Full-screen video intro with stat strip
+│       ├── SlideOverview.tsx  # Property positioning, image grid, key stats
+│       ├── SlideLegacy.tsx    # History, architecture specs, timeline
+│       ├── SlideLuxury.tsx    # Retail environment, tenants, metrics
+│       ├── SlideDining.tsx    # Dining offer, landmark venues
+│       ├── SlideEvents.tsx    # Events, activations (Fashion Week, Salone, Christmas)
+│       ├── SlideAudience.tsx  # Platform reach, audience data, partnerships
+│       └── SlidePartner.tsx   # CTA, 3 partnership paths, direct contacts
 │
 ├── lib/
 │   └── motion.ts         # Shared Framer Motion animation presets
 │
 └── public/
     └── assets/
-        ├── images/       # dome 11–17.jpg (static gallery images)
+        ├── images/       # dome 11–17.jpg
         └── videos/       # hero.mp4, dome 1–2.mp4, interior 1–4.mp4
 ```
+
+---
+
+## Navigation
+
+### Keyboard
+| Key | Action |
+|---|---|
+| `→` or `↓` | Next slide |
+| `←` or `↑` | Previous slide |
+| `F` | Toggle presentation mode (hides all UI chrome) |
+| `Escape` | Exit presentation mode |
+
+### Mouse / Touch
+- **Left sidebar rail** — hover to expand, click any label to jump to that slide
+- **Bottom dots** — click any dot to jump directly to a slide
+- **Arrow buttons** — `‹` and `›` on the left and right edges
+
+### Presentation Mode
+Click **Present** (top-right) or press `F` to hide the sidebar, dots, and arrows — clean full-screen view for screen-sharing on a live call.
+
+---
+
+## Slide Structure
+
+Each slide is a single-viewport (`w-full h-full`) component. No scrolling.
+
+| # | Slide | Layout | Key Content |
+|---|---|---|---|
+| 1 | Hero | Full-screen video | Cinematic intro, 4 key stats |
+| 2 | Overview | 2-col text + image strip + stat bar | Property positioning, headline numbers |
+| 3 | Legacy | 50/50 video + content | 147-year history, architecture specs, timeline |
+| 4 | Retail | 50/50 text + image | Key tenants, commercial metrics |
+| 5 | Dining | 40/60 image + content | Landmark venues, dining stats |
+| 6 | Events | Header + 3 video cards | Fashion Week, Salone, Christmas activations |
+| 7 | Audience | Stat bar + 2-col cards | Platform reach, audience profile, partnerships |
+| 8 | Partner | 40/60 video + cards | 3 partnership paths, direct contacts |
+
+Each slide answers: **"Why should a brand invest here?"**
 
 ---
 
@@ -87,108 +116,63 @@ galleria-experience/
 
 All visual decisions live in `app/globals.css` as CSS custom properties.
 
-### Surfaces (7 levels — no pure black or white)
+### Surfaces
 
 | Token | Value | Use |
 |---|---|---|
 | `--c-void` | `#0c0b09` | Primary dark background |
-| `--c-deep` | `#131109` | Lifted dark |
 | `--c-coal` | `#1a1812` | Charcoal panels |
-| `--c-slate` | `#1f1d16` | Warm slate — stat bars, timelines |
+| `--c-slate` | `#1f1d16` | Warm slate — stat bars |
 | `--c-ivory` | `#f5f0e8` | Primary light background |
 | `--c-cream` | `#ede8de` | Warm cream panels |
-| `--c-stone` | `#e2dbd0` | Warm stone |
 
 ### Accent
 
-Single gold accent: `--gold` `#c8a050` / `--gold-hi` `#ddb86a`
+Single gold: `--gold` `#c8a050` / `--gold-hi` `#ddb86a`
 
 ### Card Classes
 
 ```css
-.card-light   /* White card on light bg — hover lifts with shadow */
-.card-dark    /* Dark card on dark bg — hover lifts with shadow */
-.stat-card    /* Stat block — gold top-border appears on hover */
+.card-light   /* Lifted white card — hover raises with shadow */
+.card-dark    /* Lifted dark card — hover raises with shadow */
+.stat-card    /* Gold top-border appears on hover */
 ```
 
-### Type Scale
+### `overflow: hidden` on `html` and `body`
 
-All sizes use `clamp()` for fluid scaling:
-
-| Token | Range |
-|---|---|
-| `--sz-hero` | 3.75rem → 7rem |
-| `--sz-h2` | 2.75rem → 5rem |
-| `--sz-h3` | 2rem → 3.25rem |
-| `--sz-stat` | 2.25rem → 3.75rem |
-| `--sz-body` | 1.0625rem (fixed) |
-| `--sz-label` | 0.75rem (fixed) |
+The deck controls all navigation — browser scroll is disabled globally.
 
 ---
 
-## Story Flow
-
-The page tells a linear sales story, but navigation is non-linear — viewers can jump to any section at any time.
+## Deck Architecture (`Deck.tsx`)
 
 ```
-Hero          → Cinematic video intro, 4 key stats
-Transition    → Property positioning, image grid, headline numbers
-Legacy        → 147-year history, architecture specs, timeline, cultural significance
-Luxury        → Retail environment, key tenants, commercial metrics
-Dining        → Dining offer, landmark venues, business case for dwell time
-Attractions   → Events, activations (Fashion Week, Salone, Christmas), venue capacity
-Prestige      → Platform reach, partnership opportunities, audience profile
-Contact       → CTA, 3 partnership paths, direct contacts
+activeSlide (index)  ──→  renders slides[active].component
+     ↑
+  go(next)  ←── keyboard / sidebar / dots / arrows
+     ↑
+  direction (1 or -1)  ──→  AnimatePresence slide direction
 ```
 
-Each section answers: **"Why should a brand invest here?"**
-
----
-
-## Interactive Features
-
-| Feature | Implementation |
-|---|---|
-| Scroll progress bar | `ScrollProgress.tsx` — manual scroll listener, spring-physics gold bar |
-| Section dot nav | `SectionNav.tsx` — IntersectionObserver, right-edge dots with labels |
-| Parallax image strip | `Luxury.tsx` — `useScroll` + `useTransform` horizontal pan |
-| Scroll-triggered reveals | `fadeUp`, `fadeIn` presets in `lib/motion.ts` |
-| Video backgrounds | Autoplay, muted, loop on every major section |
-| Card hover states | CSS classes `.card-light`, `.card-dark`, `.stat-card` |
-| Non-linear navigation | Nav bar + SectionNav allow jumping to any section |
-
----
-
-## Video / Image Assets
-
-| File | Used in |
-|---|---|
-| `hero.mp4` | Hero section |
-| `interior 1.mp4` | Legacy — split panel |
-| `interior 2.mp4` | Dining — business case panel |
-| `interior 3.mp4` | Attractions — capacity split, Contact — CTA |
-| `interior 4.mp4` | Attractions — activation card |
-| `dome 1.mp4` | Attractions — activation card |
-| `dome 2.mp4` | Prestige — closing video band |
-| `dome 11–17.jpg` | Transition image grid, Luxury parallax strip |
-
-No two full-screen videos appear back-to-back — each video section is separated by a content or image section to avoid visual confusion.
+- `AnimatePresence mode="wait"` — waits for exit before entering next slide
+- Transition: `opacity + x` (horizontal slide, 420ms)
+- Sidebar: 44px collapsed rail, expands to 160px on hover via `motion.nav`
+- Slides fill `absolute inset-0` — sidebar overlays, never clips content
 
 ---
 
 ## AI Tools Used
 
-- **Kiro (Claude)** — component architecture, design system, content writing, iterative refinement
+- **Kiro (Claude)** — full architecture, all component code, design system, content
 - All factual content about the Galleria is drawn from publicly documented sources
 
 ---
 
 ## What Would Be Added With More Time
 
-- Interactive floor plan for the leasing section
-- Sponsorship tier calculator
-- Video lightbox for event highlight reel
-- Animated number counters on scroll entry
-- Mobile-optimised video poster images for low-bandwidth connections
-- Lighthouse performance audit and image optimisation pass
-- Deployment pipeline with preview URLs per branch
+- Swipe gesture support for tablet use
+- Sub-deck modules (deeper leasing, sponsorship, venue pages)
+- Animated number counters on slide entry
+- PDF export of the deck
+- Password-protected shareable link
+- Analytics — slide view time tracking

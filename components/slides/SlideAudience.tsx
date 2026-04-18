@@ -26,7 +26,7 @@ export default function SlideAudience() {
   return (
     <div className="relative w-full h-full flex flex-col" style={{ background: "var(--c-void)" }}>
 
-      {/* Reach stats */}
+    
       <div className="flex-shrink-0" style={{ background: "var(--c-slate)", borderBottom: "1px solid var(--div-warm)" }}>
         <div className="max-w-screen-xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-4">
@@ -43,7 +43,7 @@ export default function SlideAudience() {
         </div>
       </div>
 
-      {/* Audience cards + partnerships */}
+   
       <div className="flex-1 flex min-h-0">
 
         {/* Audience */}
