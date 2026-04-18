@@ -1,62 +1,130 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ease } from "../lib/motion";
+import { mountIn, mountUp } from "../lib/motion";
+
+const strip = [
+  { value: "1877",             label: "Year Inaugurated" },
+  { value: "15M+",             label: "Annual Visitors" },
+  { value: "Piazza del Duomo", label: "Heart of Milan" },
+  { value: "€2.4B",            label: "Annual Retail Sales" },
+];
 
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
+      {/* Video */}
       <video
         autoPlay loop muted playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ transform: "none", filter: "none" }}
+        className="absolute inset-0 w-full h-full object-cover scale-[1.03]"
+        style={{ transformOrigin: "center center" }}
       >
         <source src="/assets/videos/hero.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Cinematic gradient — warm amber at base */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(160deg, rgba(15,14,12,0.50) 0%, rgba(15,14,12,0.10) 45%, rgba(22,17,10,0.88) 100%)",
+        }}
+      />
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-8">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-center h-full max-w-screen-xl mx-auto px-8 md:px-16 pb-32">
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1.2, ease }}
-          className="text-white/50 text-xs uppercase tracking-[0.4em] mb-10"
+          {...mountIn(0.3)}
+          className="uppercase mb-6"
+          style={{ fontSize: "var(--sz-label)", letterSpacing: "var(--tr-label)", color: "var(--gold-hi)", opacity: 0.9 }}
         >
-          Milan · Est. 1877
+          Milan · Galleria Vittorio Emanuele II
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1.6, ease }}
-          className="text-white text-5xl md:text-7xl lg:text-[6rem] font-light uppercase leading-none"
-          style={{ letterSpacing: "0.15em" }}
+          {...mountUp(0.5)}
+          className="font-light uppercase"
+          style={{
+            fontSize: "var(--sz-hero)",
+            letterSpacing: "var(--tr-hero)",
+            lineHeight: "var(--lh-head)",
+            color: "var(--t-light)",
+            maxWidth: "14ch",
+            fontFamily: "var(--font-serif, Georgia, serif)",
+          }}
         >
-          Where Heritage
+          The World's
           <br />
-          Meets Luxury
+          Most Iconic
+          <br />
+          <em className="not-italic" style={{ color: "var(--gold-hi)" }}>Address.</em>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 1.4, ease }}
-          className="mt-10 text-white/60 text-sm md:text-base font-light tracking-[0.3em] uppercase"
+          {...mountUp(0.85)}
+          className="mt-8 max-w-md text-sm md:text-base leading-relaxed"
+          style={{ color: "var(--t-light-2)" }}
         >
-          Galleria Vittorio Emanuele II
+          147 years of unbroken prestige at the heart of Milan.
+          A UNESCO-recognised monument. The single most valuable
+          commercial address in Italy.
         </motion.p>
+
+        <motion.div
+          {...mountUp(1.1)}
+          className="mt-10 flex items-center gap-6"
+        >
+          <a
+            href="#legacy"
+            className="uppercase transition-all duration-400"
+            style={{
+              fontSize: "var(--sz-label)",
+              letterSpacing: "0.3em",
+              color: "var(--c-void)",
+              background: "var(--gold)",
+              padding: "13px 28px",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--gold-hi)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--gold)")}
+          >
+            Discover the Galleria
+          </a>
+          <a
+            href="#contact"
+            className="uppercase transition-colors duration-400"
+            style={{ fontSize: "var(--sz-label)", letterSpacing: "0.3em", color: "var(--t-light-2)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "var(--t-light)")}
+            onMouseLeave={e => (e.currentTarget.style.color = "var(--t-light-2)")}
+          >
+            Partner with us →
+          </a>
+        </motion.div>
       </div>
 
-      {/* Scroll cue */}
+      {/* Bottom stat strip */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        {...mountIn(1.4)}
+        className="absolute bottom-0 inset-x-0 z-10"
+        style={{ borderTop: "1px solid var(--div-dark)", background: "rgba(8,10,14,0.60)", backdropFilter: "blur(14px)" }}
       >
-        <span className="text-white/25 text-[10px] uppercase tracking-[0.4em]">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent" />
+        <div className="max-w-screen-xl mx-auto px-8 md:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {strip.map((s, i) => (
+              <div
+                key={s.label}
+                className="py-5 text-center"
+                style={{ borderRight: i < strip.length - 1 ? "1px solid var(--div-dark)" : "none" }}
+              >
+                <p className="font-light mb-1" style={{ fontSize: "clamp(1rem, 1.8vw, 1.4rem)", color: "var(--t-light)" }}>
+                  {s.value}
+                </p>
+                <p className="uppercase" style={{ fontSize: "var(--sz-label)", letterSpacing: "var(--tr-label)", color: "var(--gold)", opacity: 0.72 }}>
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   );

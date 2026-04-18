@@ -1,54 +1,111 @@
 @import "tailwindcss";
 
 :root {
-  /* Surfaces */
-  --surface-dark:        #0e0d0b;
-  --surface-light:       #f5f0e8;
+  /* ── Dark surfaces ────────────────────────────── */
+  --c-void:      #0c0b09;
+  --c-deep:      #131109;
+  --c-coal:      #1a1812;
+  --c-slate:     #1f1d16;
 
-  /* Text */
-  --text-on-dark:        #e8e0d0;
-  --text-on-light:       #1a1714;
-  --text-on-light-muted: #2e2a24;
+  /* ── Light surfaces ───────────────────────────── */
+  --c-ivory:     #f5f0e8;
+  --c-cream:     #ede8de;
+  --c-stone:     #e2dbd0;
 
-  /* Accent */
-  --accent:              #b8965a;
+  /* ── Card surfaces ────────────────────────────── */
+  --card-dark:   #181610;   /* card on dark bg — slightly lifted */
+  --card-light:  #faf7f2;   /* card on light bg — slightly lifted */
 
-  /* Decorative rules */
-  --rule-on-dark:        rgba(180,155,110,0.15);
-  --rule-on-light:       rgba(26,23,20,0.08);
+  /* ── Text on dark ─────────────────────────────── */
+  --t-light:     #f0ead8;
+  --t-light-2:   rgba(240,234,216,0.60);
+  --t-light-3:   rgba(240,234,216,0.28);
 
-  /* Video overlay */
-  --video-overlay:       rgba(14,13,11,0.40);
+  /* ── Text on light ────────────────────────────── */
+  --t-dark:      #0c0b09;
+  --t-dark-2:    #2a2620;
+  --t-dark-3:    #5a5248;
 
-  /* Spacing */
-  --space-section:       6rem;
-  --space-edge:          2rem;
-  --space-edge-md:       4rem;
+  /* ── Gold ─────────────────────────────────────── */
+  --gold:        #c8a050;
+  --gold-hi:     #ddb86a;
+  --gold-lo:     rgba(200,160,80,0.28);
 
-  /* Typography — sizes */
-  --type-hero:           clamp(4rem, 8vw, 7rem);
-  --type-section:        clamp(2.5rem, 5vw, 4.5rem);
-  --type-body:           0.9375rem;
-  --type-label:          0.6875rem;
-  --type-stat:           clamp(2rem, 3.5vw, 3rem);
+  /* ── Dividers ─────────────────────────────────── */
+  --div-dark:    rgba(200,160,80,0.16);
+  --div-light:   rgba(12,11,9,0.09);
+  --div-warm:    rgba(200,160,80,0.20);
 
-  /* Typography — spacing */
-  --tracking-hero:       0.12em;
-  --tracking-section:    0.08em;
-  --tracking-label:      0.4em;
-  --leading-heading:     1.1;
+  /* ── Overlays ─────────────────────────────────── */
+  --ov-heavy:    rgba(12,11,9,0.70);
+  --ov-mid:      rgba(12,11,9,0.46);
+  --ov-soft:     rgba(12,11,9,0.20);
+
+  /* ── Type ─────────────────────────────────────── */
+  --sz-hero:     clamp(3.75rem, 8vw, 7rem);
+  --sz-h2:       clamp(2.75rem, 5.5vw, 5rem);
+  --sz-h3:       clamp(2rem, 3.5vw, 3.25rem);
+  --sz-stat:     clamp(2.5rem, 4.5vw, 4.25rem);
+  --sz-label:    0.75rem;
+  --sz-body:     1.0625rem;
+
+  --tr-hero:     0.04em;
+  --tr-h2:       0.02em;
+  --tr-label:    0.28em;
+  --lh-head:     1.04;
+  --lh-body:     1.78;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--surface-dark);
-  color: var(--text-on-dark);
-  font-family: var(--font-geist-sans), "Helvetica Neue", Arial, sans-serif;
+  background: var(--c-void);
+  color: var(--t-light);
+  font-family: var(--font-sans, "Helvetica Neue", Arial, sans-serif);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar { width: 0px; }
+/* ── Card base — used on light sections ── */
+.card-light {
+  background: var(--card-light);
+  border: 1px solid rgba(12,11,9,0.07);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.card-light:hover {
+  box-shadow: 0 8px 40px rgba(12,11,9,0.10);
+  transform: translateY(-2px);
+}
+
+/* ── Card base — used on dark sections ── */
+.card-dark {
+  background: var(--card-dark);
+  border: 1px solid rgba(200,160,80,0.10);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.card-dark:hover {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+}
+
+/* ── Stat card ── */
+.stat-card {
+  position: relative;
+}
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.stat-card:hover::before {
+  opacity: 0.6;
+}
+
+::-webkit-scrollbar { width: 0; }
